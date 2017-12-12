@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-
+  include Response
   def index
     @users = User.all
+    json_response(@users)
   end
 
   def show
@@ -30,6 +31,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name :board_id)
+    params.permit(:name, :board_id)
   end
 end

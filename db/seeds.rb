@@ -28,9 +28,9 @@ class Seed
 
   # def generate_mezzages
   #   10000.times do |i|
-  #
+  #     user = User.find(rand(1..10))
   #     board = Board.find(rand(1..30))
-  #     user = board.users.find(rand(1..10))
+  #
   #       title: Faker::Simpsons.location,
   #       body: Faker::RickAndMorty.quote
   #     )

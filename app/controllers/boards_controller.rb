@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-
+  include Response
   def index
     @board = Board.find(params[:id])
     json_response(@board)
