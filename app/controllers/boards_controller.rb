@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index]
+  # before_action :authenticate_user!, except: [:index]
   include Response
   def index
     @boards = Board.all

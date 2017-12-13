@@ -12,9 +12,17 @@ include Response
   end
 
   def create
+    @user = User.find(params[:user_id])
     @board = Board.find(params[:board_id])
+    @board_users = BoardUser.where(board_id: @board.id, user_id: @user.id)
+    if @board_users.length > 0
     @mezzage = @board.mezzages.create!(mezzage_params)
     json_response(@mezzage, :created)
+    else
+      render status: 500, json: {
+        message: "You're not connected to this board"
+      }
+    end
   end
 
   def update
