@@ -1,8 +1,8 @@
 class BoardsController < ApplicationController
   include Response
   def index
-    @board = Board.find(params[:id])
-    json_response(@board)
+    @boards = Board.all
+    json_response(@boards)
   end
 
   def show
