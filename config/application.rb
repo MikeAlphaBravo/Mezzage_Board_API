@@ -9,6 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+require "rack/throttle"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -18,6 +19,7 @@ Bundler.require(*Rails.groups)
 
 module Mezzages
   class Application < Rails::Application
+    config.middleware.use Rack::Throttle::Hourly, :max => 5
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

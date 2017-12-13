@@ -10,7 +10,9 @@ class Seed
   def generate_users
     10.times do |i|
       user = User.create!(
-        name: Faker::Internet.user_name
+        name: Faker::Internet.user_name,
+        email: Faker::Internet.email,
+        password: '11111111'
       )
       puts "USER GENORATRON #{user.name}"
     end
