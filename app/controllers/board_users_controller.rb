@@ -2,8 +2,13 @@ class BoardUsersController < ApplicationController
   include Response
 
   def index
-    @board = Board.find(params[:board_id])
-    json_response(@board.users)
+    if params[:board_id]
+      @board = Board.find(params[:board_id])
+      json_response(@board.users)
+    elsif params[:user_id]
+      @user = User.find(params[:user_id])
+      json_response(@user.boards)
+    end
   end
 
 
