@@ -9,7 +9,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
-    json_response(@board)
+    @mezzages = @board.mezzages
+    json_response([@board, @mezzages])
   end
 
   def create
